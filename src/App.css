@@ -1,0 +1,268 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+@keyframes landingPage {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+        background-size: 120%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;                    
+    justify-content: center;
+    align-items: center;
+}
+
+.App::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../src/images/dan-cristian-padure-h3kuhYUCE9A-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.result {
+    width: 40%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #041C32;
+    box-shadow: -4px 0px 4px #2e3b47;
+    border-right: 1px solid #BBB;
+    border-top: 1px solid #BBB;
+    border-left: 1px solid #BBB;
+}
+
+.result h1 {
+    width: 95%;
+    height: 7rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow-x: hidden;
+    padding-right: 1.5rem;
+    font-size: 3.75rem;
+    border-radius: 0.75rem;
+    color: white;
+    box-shadow: -2px 2px 2px #AAA;
+    border: 1px solid #777;
+    background-color: #AAA;
+}
+
+.pad {
+    width: 40%;
+    height: auto;
+    display: grid;
+    grid-template-areas: 'operation1 operation2 operation3 operation4'
+                         'number1 number2 number3 operation5'
+                         'number4 number5 number6 operation6'
+                         'number7 number8 number9 operation7'
+                         'number0 number0 operation8 operation9';
+    grid-template-rows: repeat(8rem, 5);
+    grid-template-columns: repeat(8rem, 4);
+    padding: 1.5rem;
+    gap: 0.5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: -4px 4px 4px #2e3b47;
+    background-color: #041C32;
+    border-left: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    border-right: 1px solid #BBB;
+}
+
+.button {
+    width: 100%;
+    height: 8rem;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 3rem;
+    box-shadow: -2px 2px 3px #1b4b61;
+    color: #FFF;
+    border: 1px solid #042e42;
+    background-color: #064663;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.button0 {
+    grid-area: operation1;
+}
+
+.button1 {
+    grid-area: operation2;
+}
+
+.button2 {
+    grid-area: operation3;
+}
+
+.button3 {
+    grid-area: operation4;
+}
+
+.button4 {
+    grid-area: number1; 
+}
+
+.button5 {
+    grid-area: number2;
+}
+
+.button6 {
+    grid-area: number3;
+}
+
+.button7 {
+    grid-area: operation5;
+}
+
+.button8 {
+    grid-area: number4;
+}
+
+.button9 {
+    grid-area: number5;
+}
+
+.button10 {
+    grid-area: number6;
+}
+
+.button11 {
+    grid-area: operation6;
+}
+
+.button12 {
+    grid-area: number7;
+}
+
+.button13 {
+    grid-area: number8;
+}
+
+.button14 {
+    grid-area: number9;
+}
+
+.button15 {
+    grid-area: operation7;
+}
+
+.button16 {
+    grid-area: number0;
+}
+
+.button17 {
+    grid-area: operation8;
+}
+
+.button18 {
+    grid-area: operation9;
+}
+
+.button4, .button5, .button6,
+.button8, .button9, .button10,
+.button12, .button13, .button14,
+.button16, .button17 {
+    background-color: #ECB365;
+    border: 1px solid #b88c4f;
+    box-shadow: -2px 2px 3px #cfad7f;
+}
+
+.result, .pad {
+    opacity: 0;
+    animation-name: calculatorAnimation;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes calculatorAnimation {
+    0% {
+        opacity: 0;
+        margin-right: 200px;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .result, .pad {
+        width: 35%;
+    }
+
+    .button {
+        height: 5.25rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .result, .pad {
+        width: 65%;
+    }
+
+    .button {
+        height: 7rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .result, .pad {
+        width: 80%;
+    }
+
+    .pad {
+        grid-template-rows: repeat(5rem, 5);
+        grid-template-columns: repeat(5rem, 4);
+    }
+
+    .button {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2.25rem;
+    }
+
+    .button16 {
+        width: 10rem;
+    }
+}
